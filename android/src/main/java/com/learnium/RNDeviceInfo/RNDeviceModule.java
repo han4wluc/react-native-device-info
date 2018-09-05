@@ -134,7 +134,7 @@ public class RNDeviceModule extends ReactContextBaseJavaModule {
       constants.put("buildNumber", info.versionCode);
       constants.put("firstInstallTime", info.firstInstallTime);
       constants.put("lastUpdateTime", info.lastUpdateTime);
-    } catch (PackageManager.NameNotFoundException e) {
+    } catch (Exception e) {
       e.printStackTrace();
     }
 
@@ -166,7 +166,7 @@ public class RNDeviceModule extends ReactContextBaseJavaModule {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
       try {
         constants.put("userAgent", WebSettings.getDefaultUserAgent(this.reactContext));
-      } catch (PackageManager.NameNotFoundException e) {
+      } catch (Exception e) {
         constants.put("userAgent", System.getProperty("http.agent"));
       }
     }
